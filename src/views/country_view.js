@@ -11,9 +11,24 @@ CountryView.prototype.bindEvents = function () {
 }
 
 CountryView.prototype.render = function (country) {
-  const p = document.createElement('p');
-  p.textContent = country;
-  this.container.appendChild(p);
-}
+
+ this.container.innerHTML = '';
+
+ const countryName = this.createElement('h2', country.name);
+ this.container.appendChild(countryName);
+
+ const countryTopLevelDomain = this.createElement('p', country.TopLevelDomain);
+ this.container.appendChild(countryTopLevelDomain);
+
+ const countryCapital = this.createElement('p', country.Capital);
+ this.container.appendChild(countryCapital);
+
+ const countryTimezones = this.createElement('p', country.Timezones);
+ this.container.appendChild(countryTimezones);
+
+
+ const countryList = this.createInstrumentList(country.name);
+ this.container.appendChild(countryList);
+};
 
 module.exports = CountryView;

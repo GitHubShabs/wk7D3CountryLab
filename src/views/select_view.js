@@ -6,6 +6,7 @@ const SelectView = function(element){
 
 SelectView.prototype.bindEvents = function(){
  PubSub.subscribe('Country:all-countries-ready', (evt) => {
+debugger
    const allCountry = evt.detail;
    this.populate(allCountry);
  });
